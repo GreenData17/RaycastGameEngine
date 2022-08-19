@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ctrl_Compiller.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrl_Compiller.Designer.cs">
+      <DependentUpon>ctrl_Compiller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ctrl_import.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ctrl_import.Designer.cs">
+      <DependentUpon>ctrl_import.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +67,12 @@
     <Compile Include="Manager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ctrl_Compiller.resx">
+      <DependentUpon>ctrl_Compiller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ctrl_import.resx">
+      <DependentUpon>ctrl_import.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

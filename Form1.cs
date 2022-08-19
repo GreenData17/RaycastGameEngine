@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,22 +13,27 @@ namespace RaycastGameEngine
 {
     public partial class Form1 : Form
     {
+        private ctrl_import ImportCtrl;
+
         public Form1()
         {
             InitializeComponent();
             new Manager(Application.StartupPath);
-            label1.Text = $"{Application.StartupPath}";
-            label2.Text = Manager.instance.compilerPath;
-            label3.Text = Manager.instance.c_filePath;
-            label4.Text = $"{Manager.instance.outputPath}{Manager.instance.gameName}.exe\"";
-            BuildProgress.Text = "UnBuild";
+
+            // prepare pages
+            var compileCtrl = new ctrl_Compiller();
+            tab_compile.Controls.Add(compileCtrl);
+            compileCtrl.Dock = DockStyle.Fill;
+
+            ImportCtrl = new ctrl_import();
+            tab_import.Controls.Add(ImportCtrl);
+            ImportCtrl.Dock = DockStyle.Fill;
+            tab_import.Click += Tab_import_Click;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Tab_import_Click(object sender, EventArgs e)
         {
-            BuildProgress.Text = "Building...";
-            Manager.instance.BuildGame(true);
-            BuildProgress.Text = "Build!";
+            ImportCtrl = new ctrl_import();
         }
     }
 }
